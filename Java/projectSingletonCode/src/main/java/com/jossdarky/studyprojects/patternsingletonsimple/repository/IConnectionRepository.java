@@ -7,4 +7,6 @@ public interface IConnectionRepository {
     public void disconnect();
 
     public boolean isConnected();
+
+    public String getStatus();
 }

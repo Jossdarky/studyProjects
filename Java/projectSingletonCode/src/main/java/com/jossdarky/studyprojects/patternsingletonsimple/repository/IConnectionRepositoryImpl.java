@@ -4,7 +4,11 @@ import lombok.Getter;
 
 public class IConnectionRepositoryImpl implements IConnectionRepository{
 
-    static IConnectionRepository connectionDB;
+    private static IConnectionRepository connectionDB;
+
+    private IConnectionRepositoryImpl(){
+        // Private contructor to prevent instantiation from outside the class 
+    }
 
     @Getter
     boolean connected = false;
@@ -24,6 +28,10 @@ public class IConnectionRepositoryImpl implements IConnectionRepository{
     @Override
     public void disconnect() {
         connected = false;
+    }
+
+    public String getStatus(){
+        return Boolean.toString(IConnectionRepositoryImpl.getInstance().isConnected());
     }
 
 }
